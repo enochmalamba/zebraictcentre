@@ -1,105 +1,86 @@
-@import '@fontsource/fira-mono';
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
 :root {
-	--font-body:
-		Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-		'Open Sans', 'Helvetica Neue', sans-serif;
-	--font-mono: 'Fira Mono', monospace;
-	--color-bg-0: rgb(202, 216, 228);
-	--color-bg-1: hsl(209, 36%, 86%);
-	--color-bg-2: hsl(224, 44%, 95%);
-	--color-theme-1: #ff3e00;
-	--color-theme-2: #4075a6;
-	--color-text: rgba(0, 0, 0, 0.7);
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
-	font-family: var(--font-body);
-	color: var(--color-text);
-}
+  --heading-font: "Ubuntu", sans-serif;
+  --text-font: "Open Sans", sans-serif;
 
+  /* hsl (fallback color) */
+  --bg-dark: hsl(251 100% 6%);
+  --bg: hsl(245 100% 10%);
+  --bg-light: hsl(237 77% 15%);
+  --text: hsl(226 100% 100%);
+  --text-muted: hsl(226 76% 77%);
+  --highlight: hsl(233 63% 53%);
+  --border: hsl(237 63% 42%);
+  --border-muted: hsl(252 100% 27%);
+  --primary: hsl(229 100% 85%);
+  --secondary: hsl(49 100% 28%);
+  --danger: hsl(7 100% 66%);
+  --warning: hsl(53 100% 21%);
+  --success: hsl(162 100% 22%);
+  --info: hsl(217 100% 70%);
+
+  /* sizing and other typography things */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-extra: 800;
+
+  --fs-xs: clamp(0.75rem, 0.6rem + 0.1vw, 0.875rem); /* 12px -> 14px */
+  --fs-sm: clamp(0.875rem, 0.8rem + 0.2vw, 1rem); /* 14px -> 16px */
+  --fs-base: clamp(1rem, 0.9rem + 0.25vw, 1.125rem); /* 16px -> 18px */
+
+  --fs-h4: clamp(1.125rem, 1.05rem + 0.5vw, 1.5rem); /* 18px -> 24px */
+  --fs-h3: clamp(1.375rem, 1.2rem + 1vw, 2rem); /* 22px -> 32px */
+  --fs-h2: clamp(1.75rem, 1.5rem + 2vw, 2.8rem); /* 28px -> 45px */
+  --fs-h1: clamp(2.5rem, 2.2rem + 3.5vw, 4rem); /* 40px -> 64px */
+
+  --space-xs: clamp(0.25rem, 0.2rem + 0.15vw, 0.5rem); /* 8px - 16px */
+  --space-sm: clamp(0.5rem, 0.4rem + 0.4vw, 1rem); /* 16px - 24px */
+  --space-md: clamp(1rem, 0.8rem + 0.6vw, 1.5rem); /* 24px - 48px */
+  --space-lg: clamp(1.5rem, 1.2rem + 1.2vw, 3rem); /* 48px - 80px */
+  --space-xl: clamp(3rem, 2.5rem + 2.5vw, 5rem); /* 80px - 128px */
+  --space-2xl: clamp(5rem, 4rem + 4vw, 8rem);
+
+  --radius-sm: clamp(0.125rem, 0.1rem + 0.1vw, 0.25rem); /* 2px -> 4px */
+  --radius-md: clamp(0.25rem, 0.2rem + 0.2vw, 0.5rem); /* 4px -> 8px */
+  --radius-lg: clamp(0.5rem, 0.4rem + 0.4vw, 1rem); /* 8px -> 16px */
+  --radius-full: 9999px; /* For pills/circles */
+
+  --transition-timing-ease: ease-in-out;
+  --transition-speed-fast: 150ms;
+  --transition-speed-normal: 300ms;
+  --transition-speed-slow: 500ms;
+}
+* {
+  font-family: var(--text-font);
+  position: relative;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: var(--text);
+  text-decoration: none;
+  transition: all var(--transition-speed-normal);
+}
 body {
-	min-height: 100vh;
-	margin: 0;
-	background-attachment: fixed;
-	background-color: var(--color-bg-1);
-	background-size: 100vw 100vh;
-	background-image:
-		radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%),
-		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
+  background: var(--bg);
+  height: 100vh;
+  width: 100%;
 }
-
-h1,
-h2,
-p {
-	font-weight: 400;
-}
-
-p {
-	line-height: 1.5;
-}
-
-a {
-	color: var(--color-theme-1);
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-h1 {
-	font-size: 2rem;
-	text-align: center;
-}
-
-h2 {
-	font-size: 1rem;
-}
-
-pre {
-	font-size: 16px;
-	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
-	border-radius: 3px;
-	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-	padding: 0.5em;
-	overflow-x: auto;
-	color: var(--color-text);
-}
-
-.text-column {
-	display: flex;
-	max-width: 48rem;
-	flex: 0.6;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
-}
-
-input,
-button {
-	font-size: inherit;
-	font-family: inherit;
-}
-
-button:focus:not(:focus-visible) {
-	outline: none;
-}
-
-@media (min-width: 720px) {
-	h1 {
-		font-size: 2.4rem;
-	}
-}
-
-.visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: auto;
-	margin: 0;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-	white-space: nowrap;
+body.light {
+  --bg-dark: hsl(226 100% 98%);
+  --bg: hsl(226 100% 100%);
+  --bg-light: hsl(226 100% 100%);
+  --text: hsl(264 100% 12%);
+  --text-muted: hsl(237 63% 42%);
+  --highlight: hsl(227 100% 100%);
+  --border: hsl(230 89% 65%);
+  --border-muted: hsl(229 100% 78%);
+  --primary: hsl(237 63% 42%);
+  --secondary: hsl(40 100% 11%);
+  --danger: hsl(4 99% 37%);
+  --warning: hsl(50 100% 12%);
+  --success: hsl(159 100% 9%);
+  --info: hsl(215 95% 42%);
 }
