@@ -1,14 +1,5 @@
 <script>
   import logo from "../lib/images/logo.png";
-  let isLightMode = false;
-  function swithUiMode() {
-    document.body.classList.toggle("light");
-    if (body.classList.contains("light")) {
-      isLightMode = true;
-    } else {
-      isLightMode = false;
-    }
-  }
 </script>
 
 <header>
@@ -19,18 +10,12 @@
     <ul>
       <li><a href="/">Services</a></li>
       <li><a href="/">Portfolio</a></li>
+      <li><a href="/">Shop</a></li>
       <li><a href="/">About</a></li>
       <li><a href="/">Contact</a></li>
     </ul>
   </nav>
   <div>
-    <button title="UI Switch" on:click={swithUiMode}
-      >{#if isLightMode}
-        <i class="bx bx-sun"></i>
-      {:else}
-        <i class="bx bx-moon-star"></i>
-      {/if}
-    </button>
     <button title="Toggle Menu" class="menu-toggle"
       ><i class="bx bx-menu-wider"></i></button
     >
@@ -80,9 +65,6 @@
     background: var(--bg-primary);
     border-radius: var(--radius-md);
     cursor: pointer;
-  }
-
-  .menu-toggle {
     display: none;
   }
 

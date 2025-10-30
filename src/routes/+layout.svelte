@@ -1,29 +1,25 @@
 <script>
-	import '../app.css';import Header from "./Header.svelte";
+  import "../app.css";
+  import Header from "./Header.svelte";
 </script>
 
 <div class="app">
-	<Header />
+  <!-- <Header /> -->
 
-	<main>
-		<slot />
-	</main>
-
+  <main>
+    <slot />
+  </main>
 </div>
 
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-	main {
-		flex: 1;
-		padding: 1rem;
-	}
-
-	
-
-	
+  main {
+    flex: 1;
+    padding: 1rem;
+  }
 </style>
