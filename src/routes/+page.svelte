@@ -1,101 +1,109 @@
 <script>
+  import shopPicture from "$lib/images/tech-user.png";
+  import Hero from "$lib/components/Hero.svelte";
+  import Marquee from "$lib/components/Marquee.svelte";
+  const labels = [
+    "Web Development",
+    "Computer Repair",
+    "Trainings",
+    "Graphic Designing",
+    "Mobile Accessories",
+  ];
 </script>
 
 <svelte:head>
   <title>Home | Zebra ICT Centre</title>
   <meta name="description" content="Zebra ICT Centre" />
 </svelte:head>
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_right_alt"
-/>
-<section class="hero">
-  <div class="hero-text">
-    <h1>Tech Problems <span>- Simplified<span>.</span></span></h1>
-    <p>From web development, computer repairs, technical trainings, and more</p>
-    <div class="btn-container">
-      <a href="/" class="neo-btn primary"
-        >Explore Services <span class="material-symbols-outlined">
-          arrow_right_alt
-        </span>
-      </a>
+
+<Hero />
+<section>
+  <Marquee items={labels} />
+</section>
+
+<section>
+  <div class="card neo-container hover">
+    <img src="https://avatar.iran.liara.run/public/job/operator/male" alt="" />
+    <div>
+      <h2>Get computer knowledge</h2>
+      <p>
+        Learn how to use computers and be productive with them. Get technical
+        trainings to repair both hardware and software of phones and computers.
+      </p>
+      <a href="/">Discovers courses</a>
     </div>
   </div>
-  <div class="hero-img neo-container hover">
-    <img src="https://avatar.iran.liara.run/public/job/operator/male" alt="" />
+  <div class="card neo-container hover">
+    <img src={shopPicture} alt="" />
+    <div>
+      <h2>Get low prices</h2>
+      <p>
+        Browse our vast caterlog of tech products and find the one that best
+        fits your needs. From laptops to mobile phones, we have it all.
+      </p>
+      <a href="/">Explore our collection</a>
+    </div>
   </div>
 </section>
 
 <style>
-  .hero {
+  section {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: start;
-    flex: 1;
   }
 
-  .hero-text {
+  .card {
     display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: var(--space-sm);
-    width: min(100%, 500px);
-  }
-
-  h1 {
-    font-family: var(--heading-font);
-    font-size: var(--fs-h2);
-    display: flex;
-    flex-direction: column;
-  }
-
-  h1 span {
-    color: var(--primary);
-    font-size: calc(var(--fs-h1) - 5px);
-  }
-  h1 span span {
-    color: var(--text);
-  }
-
-  P {
-    font-size: calc(var(--fs-h3) - 3px);
-  }
-
-  .btn-container {
-    display: flex;
+    align-items: center;
     gap: var(--space-md);
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: left;
-    padding: var(--space-md) 0;
+    width: 48%;
   }
-  a {
-    font-size: var(--fs-h4);
-    background: var(--primary);
-    color: var(--highlight);
+  .card img {
+    width: 170px;
   }
 
-  a span {
-    font-size: 25px;
-    color: inherit;
-  }
-
-  .hero-img {
-    width: min(100%, 500px);
-    overflow: hidden;
-    padding: var(--space-md);
+  .card div {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: var(--space-md);
   }
 
-  .hero-img img {
-    width: 100%;
+  .card h2,
+  .card p,
+  .card a {
+    color: var(--text-dark);
+  }
+
+  .card div h2 {
+    font-size: var(--fs-h4);
+  }
+
+  .card a {
+    text-decoration: underline;
+  }
+
+  .card:first-child {
+    background: var(--success);
+  }
+
+  .card:nth-child(2) {
+    background: var(--info);
   }
 
   @media screen and (max-width: 768px) {
-    .hero {
+    section {
       flex-direction: column;
+      gap: var(--space-lg);
+    }
+    .card {
+      width: 100%;
+      flex-direction: column;
+    }
+    .card img {
+      height: 250px;
+      object-fit: contain;
+      object-position: c;
     }
   }
 </style>
